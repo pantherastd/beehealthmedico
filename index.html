@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BeeHealth — Onboarding do Médico Parceiro (Protótipo)</title>
+<link rel="icon" href="assets/icone-beehealth.svg" />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<div class="app" id="app">
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast" onclick="onToastTap()">
+    <div class="tico">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+    </div>
+    <div>
+      <div class="ttitle">Nova solicitação de receita</div>
+      <div class="tbody">Paciente: <b>Ana Souza</b> · toque para abrir</div>
+    </div>
+  </div>
+
+  <!-- ================= SPLASH 1 ================= -->
+      <section class="screen active" id="s-splash1">
+        <div class="scene-dark splash-dark">
+          <img class="doctor-photo" src="assets/onboarding/doctor-splash.jpg" alt="" />
+          <div class="scene-content splash-content">
+            <img class="logo-lockup" src="assets/onboarding/logo-on-dark.png" alt="beehealth." />
+            <h1 class="dark-headline">Você prescreve,<br>a BeeHealth aplica.</h1>
+            <p class="dark-body">Prescreva injetáveis para pacientes em qualquer lugar do Brasil.</p>
+            <div class="spacer"></div>
+            <button class="btn btn-primary btn-dark-cta" onclick="goTo('s-onb1')">Quero ser um parceiro</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ONBOARDING 1 ================= -->
+      <section class="screen" id="s-onb1">
+        <div class="scene-dark onb-dark">
+          <div class="scene-content">
+            <img class="logo-lockup" src="assets/onboarding/logo-on-dark.png" alt="beehealth." />
+            <div class="onb-card">
+              <div class="onb-card-eyebrow">Para médicos parceiros</div>
+              <img class="onb-card-icon" src="assets/onboarding/icon-injection.svg" alt="" />
+              <h2 class="dark-headline onb-card-title">Você prescreve,<br>nós aplicamos</h2>
+              <p class="dark-body onb-card-body">na casa do paciente, em qualquer lugar do Brasil.</p>
+            </div>
+            <div class="spacer"></div>
+            <div class="onb-nav">
+              <button class="btn btn-text-dark" onclick="goTo('s-cadastro')">Pular</button>
+              <button class="btn btn-primary btn-dark-cta" onclick="goTo('s-onb2')">Avançar</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ONBOARDING 2 ================= -->
+      <section class="screen" id="s-onb2">
+        <div class="scene-dark onb-dark">
+          <div class="scene-content">
+            <img class="logo-lockup" src="assets/onboarding/logo-on-dark.png" alt="beehealth." />
+            <div class="onb-card">
+              <div class="onb-card-eyebrow">Para médicos parceiros</div>
+              <img class="onb-card-icon" src="assets/onboarding/icon-nurse.svg" alt="" />
+              <h2 class="dark-headline onb-card-title">Rede de enfermeiros especializados</h2>
+              <p class="dark-body onb-card-body">em infusão domiciliar em todo o território nacional.</p>
+            </div>
+            <div class="spacer"></div>
+            <div class="onb-nav">
+              <button class="btn btn-text-dark" onclick="goTo('s-cadastro')">Pular</button>
+              <button class="btn btn-primary btn-dark-cta" onclick="goTo('s-onb3')">Avançar</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ONBOARDING 3 ================= -->
+      <section class="screen" id="s-onb3">
+        <div class="scene-dark onb-dark">
+          <div class="scene-content">
+            <img class="logo-lockup" src="assets/onboarding/logo-on-dark.png" alt="beehealth." />
+            <div class="onb-card">
+              <div class="onb-card-eyebrow">Para médicos parceiros</div>
+              <img class="onb-card-icon" src="assets/onboarding/icon-checkup.svg" alt="" />
+              <h2 class="dark-headline onb-card-title">Acompanhe cada caso em tempo real</h2>
+              <p class="dark-body onb-card-body">com relatório pós-atendimento vinculado à sua prescrição.</p>
+            </div>
+            <div class="spacer"></div>
+            <div class="onb-nav">
+              <button class="btn btn-text-dark" onclick="goTo('s-cadastro')">Pular</button>
+              <button class="btn btn-primary btn-dark-cta" onclick="goTo('s-cadastro')">Começar</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= US 1.1 — CADASTRO ================= -->
+      <section class="screen" id="s-cadastro">
+        <div class="eyebrow-tag">US 1.1 · Cadastro do médico</div>
+        <h2 class="screen-title">Crie sua conta parceira</h2>
+        <p class="screen-body">Leva menos de 2 minutos. Você poderá começar a receber solicitações assim que concluir.</p>
+        <div class="field"><label>Nome completo</label><input id="f-nome" placeholder="Dra. Camila Ferreira" /></div>
+        <div class="field"><label>CRM</label><input id="f-crm" placeholder="CRM/SP 123456" /></div>
+        <div class="field"><label>Especialidade</label>
+          <select id="f-esp">
+            <option>Clínica Médica</option>
+            <option>Infectologia</option>
+            <option>Reumatologia</option>
+            <option>Oncologia</option>
+            <option>Geriatria</option>
+          </select>
+        </div>
+        <div class="field"><label>Telefone / WhatsApp</label><input id="f-tel" placeholder="(11) 98888-0000" /></div>
+        <div class="spacer"></div>
+        <button class="btn btn-primary" onclick="submitCadastro()">Criar minha conta</button>
+      </section>
+
+      <!-- ================= SUCESSO — CADASTRO ================= -->
+      <section class="screen" id="s-cadastro-ok">
+        <div class="success-inner">
+          <div class="success-ring">
+            <div class="check-circle">
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+          </div>
+          <div class="success-title">Tudo pronto, Dra.!</div>
+          <div class="success-sub">Sua conta parceira foi criada com sucesso. Agora você já faz parte da rede BeeHealth e pode começar a receber pacientes.</div>
+          <button class="btn btn-primary" style="margin-top:20px; width:220px;" onclick="finishCadastroToHome()">Ir para o painel</button>
+        </div>
+      </section>
+
+      <!-- ================= HOME ================= -->
+      <section class="screen" id="s-home">
+        <div class="home-header">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <div class="avatar" id="home-avatar">CF</div>
+            <div>
+              <div class="home-name" id="home-name">Dra. Camila Ferreira</div>
+              <div class="home-esp" id="home-esp">Clínica Médica</div>
+            </div>
+          </div>
+          <div class="bell-btn"><span class="bell-dot" id="bell-dot" style="display:none;"></span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1b1d2e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          </div>
+        </div>
+        <div class="empty-state" id="home-empty">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+          <div style="font-size:13.5px; font-weight:700;">Nenhuma solicitação no momento</div>
+          <div style="font-size:12px;">Assim que um paciente solicitar uma receita, você verá aqui.</div>
+        </div>
+        <div class="bottom-nav">
+          <div class="nav-item on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9"/><path d="M9 21V12h6v9"/></svg>Início</div>
+          <div class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Pacientes</div>
+          <div class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Perfil</div>
+        </div>
+      </section>
+
+      <!-- ================= US 1.2 — CHAT ================= -->
+      <section class="screen" id="s-chat">
+        <div class="chat-header">
+          <button class="btn-text" style="padding:0 8px 0 0;" onclick="goTo('s-home')">←</button>
+          <div class="avatar dark">AS</div>
+          <div><div class="who">Solicitação · Ana Souza</div><div class="sub">Encaminhada via BeeHealth</div></div>
+        </div>
+        <div class="chat-log" id="chatLog">
+          <div class="msg sys">
+            <div class="patient-card">
+              <div class="pc-row"><span>Paciente</span><b>Ana Souza, 58 anos</b></div>
+              <div class="pc-row"><span>Diagnóstico presumido</span><b>Deficiência de ferro</b></div>
+              <div class="pc-row"><span>Motivo</span><b>Indicação de ferro injetável domiciliar</b></div>
+              <div class="pc-row"><span>Região</span><b>São Paulo, SP</b></div>
+            </div>
+          </div>
+          <div class="msg sys">Olá, Dra. Camila! A paciente Ana solicitou uma avaliação para infusão domiciliar. Deseja avaliar este caso?</div>
+          <div class="msg-row-btns" id="chat-decision-1">
+            <button class="btn btn-ghost btn-sm" onclick="recusarCaso()">Recusar</button>
+            <button class="btn btn-primary btn-sm" onclick="aprovarCaso()">Aprovar atendimento</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= STATUS / END ================= -->
+      <section class="screen" id="s-status">
+        <div class="eyebrow-tag">US 1.5 · Acompanhamento</div>
+        <h2 class="screen-title">Status do encaminhamento</h2>
+        <div class="card" style="margin-bottom:18px;">
+          <div style="font-size:13px; font-weight:800; color:var(--bh-navy); margin-bottom:2px;">Ana Souza</div>
+          <div style="font-size:11.5px; color:#8a8ea8;">Deficiência de ferro · Ferro injetável</div>
+        </div>
+        <div class="timeline" id="timeline">
+          <div class="tl-item"><div class="tl-dot done">✓</div><div><div class="tl-label">Solicitação recebida</div><div class="tl-sub">Paciente enviou os dados iniciais</div></div></div>
+          <div class="tl-item"><div class="tl-dot done">✓</div><div><div class="tl-label">Avaliada pelo médico</div><div class="tl-sub">Você aprovou o atendimento</div></div></div>
+          <div class="tl-item"><div class="tl-dot current">●</div><div><div class="tl-label" id="tl-current-label">Em atendimento</div><div class="tl-sub" id="tl-current-sub">Consulta em andamento</div></div></div>
+          <div class="tl-item"><div class="tl-dot todo">○</div><div><div class="tl-label todo">Protocolo enviado</div><div class="tl-sub">Próxima etapa — US 1.4</div></div></div>
+          <div class="tl-item"><div class="tl-dot todo">○</div><div><div class="tl-label todo">Infusão agendada</div></div></div>
+        </div>
+        <div class="spacer"></div>
+        <p class="footnote">Fim desta demonstração (US 1.0 → US 1.2). O envio do protocolo e o agendamento da infusão fazem parte da próxima etapa do fluxo.</p>
+        <button class="btn btn-ghost" onclick="resetProto()">↺ Reiniciar demonstração</button>
+      </section>
+
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
